@@ -28,8 +28,8 @@ pipeline {
                     def latestTag = "${DOCKER_IMAGE_BASE}:latest"
                     
                     // Build the Docker image using the packaged JAR
-                    sh "sudo docker build --no-cache -t ${imageTag} ."
-                    sh "sudo docker tag ${imageTag} ${latestTag}"
+                    sh "docker build --no-cache -t ${imageTag} ."
+                    sh "docker tag ${imageTag} ${latestTag}"
                     
                     // Save the image tag for the next stages
                     env.DOCKER_IMAGE = imageTag
@@ -41,12 +41,12 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'Dockerhub-cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                        sh "sudo docker logout"
-                        sh "sudo echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                        sh "docker logout"
+                        sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
 
                         // Push both versioned and latest images
-                        sh "sudo docker push ${env.DOCKER_IMAGE}"
-                        sh "sudo docker push ${DOCKER_IMAGE_BASE}:latest"
+                        sh "docker push ${env.DOCKER_IMAGE}"
+                        sh "docker push ${DOCKER_IMAGE_BASE}:latest"
                     }
                 }
             }
