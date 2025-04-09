@@ -57,8 +57,8 @@ pipeline {
                 script {
                     withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                         sh '''
-                            sudo kubectl --kubeconfig=$KUBECONFIG apply -f deployment.yaml --namespace=$K8S_NAMESPACE
-                            sudo kubectl --kubeconfig=$KUBECONFIG apply -f service.yaml --namespace=$K8S_NAMESPACE
+                            kubectl --kubeconfig=$KUBECONFIG apply -f deployment.yaml --namespace=$K8S_NAMESPACE
+                            kubectl --kubeconfig=$KUBECONFIG apply -f service.yaml --namespace=$K8S_NAMESPACE
                         '''
                     }
                 }
@@ -71,8 +71,8 @@ pipeline {
                     withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                         // Ensure deployment name matches the one in deployment.yaml
                         sh """
-                            sudo kubectl --kubeconfig=$KUBECONFIG set image deployment/new-springboot-app new-springboot-app-container=${env.DOCKER_IMAGE} --namespace=$K8S_NAMESPACE
-                            sudo kubectl --kubeconfig=$KUBECONFIG rollout status deployment/new-springboot-app --namespace=$K8S_NAMESPACE
+                            kubectl --kubeconfig=$KUBECONFIG set image deployment/new-springboot-app new-springboot-app-container=${env.DOCKER_IMAGE} --namespace=$K8S_NAMESPACE
+                            kubectl --kubeconfig=$KUBECONFIG rollout status deployment/new-springboot-app --namespace=$K8S_NAMESPACE
                         """
                     }
                 }
