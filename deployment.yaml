@@ -5,7 +5,7 @@ metadata:
   labels:
     app: my-springboot-app
 spec:
-  replicas: 
+  replicas: 3
   selector:
     matchLabels:
       app: my-springboot-app
