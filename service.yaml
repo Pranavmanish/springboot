@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: new-springboot-app-service
+spec:
+  selector:
+    app: new-springboot-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080  # This should match the containerPort in the deployment
+  type: LoadBalancer  # You can change this to ClusterIP or NodePort depending on your setup
