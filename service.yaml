@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: new-springboot-app-service
+  name: my-springboot-app-service
 spec:
   selector:
-    app: new-springboot-app
+    app: my-springboot-app
   ports:
     - protocol: TCP
       port: 80
