@@ -19,13 +19,3 @@ spec:
           image: pranav1706/my-spring-app:latest  # Use your Docker image here
           ports:
             - containerPort: 8080  # The port your Spring Boot app is running on
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: "prod"  # You can adjust this if you're using profiles
-          resources:
-            requests:
-              memory: "512Mi"
-              cpu: "500m"
-            limits:
-              memory: "1Gi"
-              cpu: "1"
