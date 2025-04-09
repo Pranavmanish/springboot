@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_BASE = 'yourusername/new-springboot-app' // Update Docker image name
+        DOCKER_IMAGE_BASE = 'pranav1706/my-spring-app' // Update Docker image name
         K8S_NAMESPACE = 'default' // Kubernetes namespace
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'Github-cred', branch: 'main', url: 'https://github.com/yourusername/new-springboot-app.git' // Update repo URL
+                git credentialsId: 'Github-cred', branch: 'main', url: 'https://github.com/Pranavmanish/springboot.git' // Update repo URL
             }
         }
 
