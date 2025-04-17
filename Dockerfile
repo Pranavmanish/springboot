@@ -1,3 +1,9 @@
+# Group Members:
+# Pranav Manish Reddi Madduri - G01504276
+# Lavanya Jillela - G01449670
+# Sneha Rathi - G01449688
+# Chennu Naga Venkata Sai - G01514409
+
 # Use a lightweight OpenJDK image
 FROM eclipse-temurin:17-jre-alpine
 

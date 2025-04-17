@@ -1,3 +1,9 @@
+ // Group Members:
+ // Pranav Manish Reddi Madduri - G01504276
+ // Lavanya Jillela - G01449670
+ // Sneha Rathi - G01449688
+ // Chennu Naga Venkata Sai - G01514409
+ 
 package com.example.demo.config; // Change this based on your package structure
 
 import org.springframework.context.annotation.Bean;
